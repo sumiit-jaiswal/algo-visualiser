@@ -1,0 +1,111 @@
+$grid-size: 40px;
+$num-rows: 30;
+$num-cols: 30;
+
+.graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+
+    .controls {
+        margin-bottom: 20px;
+
+        button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #0056b3;
+            }
+
+            &:disabled {
+                background-color: #c0c0c0;
+                cursor: not-allowed;
+            }
+        }
+
+        input {
+            margin-left: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 60px;
+            text-align: center;
+        }
+
+        .blockage-btn,
+        .weight-btn {
+            background-color: #333;
+        }
+
+        .start-btn {
+            background-color: #28a745;
+        }
+
+        .reset-btn,
+        .end-btn {
+            background-color: red;
+        }
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat($num-cols, $grid-size);
+        grid-template-rows: repeat($num-rows, $grid-size);
+        gap: 1px;
+    }
+
+    .node {
+        width: $grid-size;
+        height: $grid-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, border 0.3s;
+
+        &.empty {
+            background-color: #f0f0f0;
+        }
+
+        &.blockage {
+            background-color: #333;
+            border: 1px solid #000;
+        }
+
+        &.weight {
+            background-color: #ddd;
+            border: 1px solid #aaa;
+        }
+
+        &.start {
+            background-color: #0f0;
+            border: 1px solid #0a0;
+        }
+
+        &.end {
+            background-color: #f00;
+            border: 1px solid #a00;
+        }
+
+        &.path {
+            background-color: #ff0;
+            border: 1px solid #cc0;
+        }
+
+        &.search {
+            background-color: #add8e6;
+            border: 1px solid #87ceeb;
+        }
+    }
+}

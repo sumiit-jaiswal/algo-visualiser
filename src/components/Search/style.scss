@@ -1,0 +1,205 @@
+.searching-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+
+    header {
+        margin-bottom: 20px;
+
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+    }
+
+    .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 600px;
+
+        .algorithms {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            button {
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                color: #333;
+                cursor: pointer;
+                font-size: 1rem;
+                margin: 0 5px;
+                padding: 10px 20px;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+
+                &.active {
+                    background-color: #007bff;
+                    color: #fff;
+                    border-color: #007bff;
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    background-color: #d6d6d6;
+                    border-color: #bfbfbf;
+                }
+            }
+        }
+
+        .array-size-slider {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+
+            label {
+                margin-right: 10px;
+            }
+
+            input[type="range"] {
+                width: 200px;
+            }
+
+            span {
+                margin-left: 10px;
+            }
+        }
+
+        .search-input {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+
+            label {
+                margin-right: 10px;
+            }
+
+            input[type="number"] {
+                width: 80px;
+            }
+        }
+
+        .searching-buttons {
+            display: flex;
+            gap: 10px;
+
+            button {
+                background-color: #007bff;
+                border: none;
+                border-radius: 4px;
+                color: #fff;
+                cursor: pointer;
+                font-size: 1rem;
+                padding: 10px 20px;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    background-color: #d6d6d6;
+                }
+            }
+
+            .stop-button {
+                background-color: #dc3545;
+
+                &:hover {
+                    background-color: #c82333;
+                }
+            }
+        }
+    }
+
+    .array-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+        width: 100%;
+
+        .array-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff; // Default color for unvisited elements
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            width: 50px; // Fixed width for each bar
+            height: 50px; // Fixed height for each bar
+            color: #fff;
+            font-size: 1rem;
+
+            &.highlight {
+                background-color: #ff5733; // Color for the current element being examined
+            }
+
+            &.found {
+                background-color: #28a745; // Color for the found element
+            }
+
+            &.visited {
+                background-color: #6c757d; // Color for visited elements
+            }
+
+            &.final-answer {
+                background-color: #ffc107; // Color for the final answer in binary search
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .controls {
+            width: 90%;
+        }
+
+        .array-size-slider input[type="range"] {
+            width: 150px;
+        }
+
+        .search-input input[type="number"] {
+            width: 60px;
+        }
+
+        .array-bar {
+            width: 40px;
+            height: 40px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .controls {
+            width: 100%;
+        }
+
+        .search-input,
+        .array-size-slider {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .search-input input[type="number"] {
+            width: 100%;
+        }
+
+        .array-bar {
+            width: 30px;
+            height: 30px;
+            font-size: 0.8rem;
+        }
+    }
+}
