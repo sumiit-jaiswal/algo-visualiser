@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./style.scss";
 
 const Sorting = () => {
@@ -16,20 +16,20 @@ const Sorting = () => {
     "Merge Sort",
   ];
 
-  useEffect(() => {
-    generateArray();
-  }, [arraySize]);
-
-  const generateArray = () => {
+  const generateArray = useCallback(() => {
     const newArray = Array.from({ length: arraySize }, () =>
       Math.floor(Math.random() * 100)
     );
     setArray(newArray);
-  };
+  }, [arraySize]);
 
-  const handleAlgorithmChange = (e) => {
-    setAlgorithm(e.target.value);
-  };
+  useEffect(() => {
+    generateArray();
+  }, [generateArray]);
+
+  // const handleAlgorithmChange = (e) => {
+  //   setAlgorithm(e.target.value);
+  // };
 
   const handleArraySizeChange = (e) => {
     setArraySize(e.target.value);

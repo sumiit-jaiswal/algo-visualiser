@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./style.scss";
 
 const Searching = () => {
@@ -13,20 +13,20 @@ const Searching = () => {
 
   const algorithms = ["Linear Search", "Binary Search"];
 
-  useEffect(() => {
-    generateArray();
-  }, [arraySize]);
-
-  const generateArray = () => {
+  const generateArray = useCallback(() => {
     const newArray = Array.from({ length: arraySize }, (_, index) => index + 1);
     setArray(newArray);
     setVisitedIndexes([]);
     setFoundIndex(-1);
-  };
+  }, [arraySize]);
 
-  const handleAlgorithmChange = (e) => {
-    setAlgorithm(e.target.value);
-  };
+  useEffect(() => {
+    generateArray();
+  }, [generateArray]);
+
+  // const handleAlgorithmChange = (e) => {
+  //   setAlgorithm(e.target.value);
+  // };
 
   const handleArraySizeChange = (e) => {
     setArraySize(e.target.value);
