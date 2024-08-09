@@ -2,7 +2,6 @@ import "./app.scss";
 import Searching from "./components/Search";
 import Sorting from "./components/Sorting";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import Tree from "./components/Tree";
 import Home from "./components/Homepage";
 import Graph from "./components/Graph";
 import Header from "./components/Header";
@@ -17,7 +16,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sorting" element={<Sorting />} />
             <Route path="/searching" element={<Searching />} />
-            <Route path="/tree-traversal" element={<Tree />} />
             <Route path="/Graph-traversal" element={<Graph />} />
           </Routes>
         </main>
